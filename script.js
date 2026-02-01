@@ -16,31 +16,28 @@ const noResponses = [
 
 noBtn.addEventListener('click', () => {
     if (noCount < noResponses.length) {
-        // Change the text to the next funny prompt
         questionText.innerText = noResponses[noCount];
         
-        // Make the "Yes" button grow bigger each time she says "No"
+        // Make the "Yes" button grow bigger
         let currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-        yesBtn.style.fontSize = (currentSize + 10) + "px";
-        yesBtn.style.padding = (currentSize + 5) + "px " + (currentSize + 20) + "px";
+        yesBtn.style.fontSize = (currentSize + 12) + "px";
+        yesBtn.style.padding = (currentSize + 5) + "px " + (currentSize + 25) + "px";
         
         noCount++;
     }
     
     if (noCount === noResponses.length) {
-        noBtn.style.display = 'none'; // Hide "No" after 4-5 attempts
+        noBtn.style.display = 'none'; 
     }
 });
 
 yesBtn.addEventListener('click', () => {
     questionText.innerText = "YAY! I'm the luckiest! ❤️";
-    subText.innerHTML = "Princess, you make every day feel like a win. <br> I appreciate you more than you know!";
+    subText.innerHTML = "Princess, you make every day feel like a win. <br> I appreciate you more than you know";
     displayImg.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZqZzR6eXp3Ymd6ZzR6eXp3Ymd6ZzR6eXp3Ymd6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/vAas6vNfX6XEg/giphy.gif";
     
-    // Hide the buttons
     document.querySelector('.buttons').style.display = 'none';
 
-    // Heart Confetti Effect
     var duration = 5 * 1000;
     var end = Date.now() + duration;
 
@@ -64,4 +61,4 @@ yesBtn.addEventListener('click', () => {
         requestAnimationFrame(frame);
       }
     }());
-});g
+});
