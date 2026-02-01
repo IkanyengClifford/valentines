@@ -7,11 +7,11 @@ const displayImg = document.getElementById('display-img');
 let noCount = 0;
 
 const noResponses = [
-    "Really, Princess?",
+    "BABBBYY GIRLLL, Whats your nameee? 😩",
     "Is it cause I play too much Apex? I'll stop! (maybe)",
     "Kante??????🥺",
     "I'm going to assume you meant 'Yes' 🤔",
-    "Okay, the 'No' button is now broken. Try the other one!"
+    "Okay, the 'No' button is now broken. You dont deserve it.😤"
 ];
 
 const noImages = [
@@ -48,7 +48,7 @@ yesBtn.addEventListener('click', () => {
     document.querySelector('.buttons').style.display = 'none';
 
     // 2. Update Text
-    questionText.innerText = "YAY! I'm the luckiest! ❤️";
+    questionText.innerText = "Retla kopana ka di nkathi ❤️";
     subText.innerHTML = "Princess, you make every day feel like a win. <br> I appreciate you more than you know.";
     
     // 3. Force Image Change - Using the filename from your screenshot
