@@ -7,11 +7,11 @@ const displayImg = document.getElementById('display-img');
 let noCount = 0;
 
 const noResponses = [
-    "Are you sure, Princess?",
-    "Wait, think about the chocolates!",
-    "Is that your final answer? 🥺",
-    "I'm going to cry... 5... 4... 3...",
-    "Okay, the 'No' button is now broken. Try the other one!"
+    "Really, Princess?",
+    "Is it cause I play too much Apex?, Ill stop(maybe)",
+    "Kante??????🥺",
+    "I'm going to assume you meant 'Yes' 🤔",
+    "Okay, the 'No' button is now broken, you dont deserve it, Try the other one"
 ];
 
 noBtn.addEventListener('click', () => {
