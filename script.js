@@ -6,7 +6,6 @@ const displayImg = document.getElementById('display-img');
 
 let noCount = 0;
 
-// 1. Text Responses
 const noResponses = [
     "Really, Princess?",
     "Is it cause I play too much Apex? I'll stop! (maybe)",
@@ -15,29 +14,23 @@ const noResponses = [
     "Okay, the 'No' button is now broken. Try the other one!"
 ];
 
-// 2. Image Responses (Your uploaded files)
 const noImages = [
-    "no_1.jpg", // Scared Tanjiro/Zenitsu
-    "no_2.jpg", // Angry Inosuke
-    "no_3.jpg", // Shocked Zenitsu
-    "no_1.jpg", // Repeat Scared
-    "no_2.jpg"  // Repeat Angry
+    "no_1.jpg", 
+    "no_2.jpg", 
+    "no_3.jpg", 
+    "no_1.jpg", 
+    "no_2.jpg"
 ];
 
 noBtn.addEventListener('click', () => {
     if (noCount < noResponses.length) {
-        // Change Text
         questionText.innerText = noResponses[noCount];
-        
-        // Change Image (Cycles through your specific files)
         displayImg.src = noImages[noCount];
 
-        // Text Pop Animation
         questionText.classList.remove('highlight');
-        void questionText.offsetWidth; // Trigger reflow
+        void questionText.offsetWidth;
         questionText.classList.add('highlight');
         
-        // Make Yes button grow
         let currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
         yesBtn.style.fontSize = (currentSize + 15) + "px";
         yesBtn.style.padding = (currentSize + 10) + "px " + (currentSize + 30) + "px";
@@ -51,26 +44,28 @@ noBtn.addEventListener('click', () => {
 });
 
 yesBtn.addEventListener('click', () => {
-    // Success Message
+    // 1. Hide buttons FIRST so they don't get stuck
+    document.querySelector('.buttons').style.display = 'none';
+
+    // 2. Update Text
     questionText.innerText = "YAY! I'm the luckiest! ❤️";
     subText.innerHTML = "Princess, you make every day feel like a win. <br> I appreciate you more than you know.";
     
-    // Change Image to Happy Dancing Nezuko
-    displayImg.src = "yes_nezuko.gif";
-    
-    // Hide buttons
-    document.querySelector('.buttons').style.display = 'none';
+    // 3. Force Image Change - Using the filename from your screenshot
+    displayImg.src = "yes_nezuko.gif"; 
 
-    // Confetti
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#ff4d6d', '#ff758f', '#ffffff']
-    });
-
-    // Floating Hearts
-    createHearts();
+    // 4. Safety Check for Effects (Confetti/Hearts)
+    try {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ff4d6d', '#ff758f', '#ffffff']
+        });
+        createHearts();
+    } catch (e) {
+        console.log("Effects skipped, but that's okay!");
+    }
 });
 
 function createHearts() {
